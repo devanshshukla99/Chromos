@@ -8,7 +8,6 @@
 >> import Chromos
 >> o = Chromos.Chromos()
 >> print(o.blue("Hello! *"))
-
 >>### For Bold
 >>>o.bold = True
 
