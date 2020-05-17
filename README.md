@@ -1,15 +1,15 @@
 # Chromos
 
-## Installation
+>## Installation
 
-  ### With setup.py
-  python3 setup.py bdist_wheel
+>>### With setup.py
+>>python3 setup.py bdist_wheel
 
-## Basic Example
+>## Basic Example
 
-  import Chromos
+>> import Chromos
 
-  o = Chromos.Chromos()
+>> o = Chromos.Chromos()
 
   print(o.blue("Hello! "))
 
