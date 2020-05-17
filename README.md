@@ -1,11 +1,14 @@
-```diff```
 # Chromos
 
 ## Installation
-    ### With setup.py
+<!--    ### With setup.py
     
 		python3 setup.py bdist_wheel
-
+-->
+	### With Wheel File
+		
+		pip install Chromos*.whl
+		
 ## Basic Example
 	import Chromos
 	o = Chromos.Chromos()
