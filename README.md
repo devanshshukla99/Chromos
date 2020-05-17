@@ -5,8 +5,7 @@
     
 		python3 setup.py bdist_wheel
 -->
-	### With Wheel File
-		
+	With Wheel File	
 		pip install Chromos*.whl
 		
 ## Basic Example
@@ -14,7 +13,7 @@
 	o = Chromos.Chromos()
 	print(o.blue("Hello! *"))
 
-	### For Bold
+	For Bold
 	o.bold = True
 
 And Similarly for other attributes.
