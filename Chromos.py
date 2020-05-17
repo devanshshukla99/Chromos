@@ -114,32 +114,3 @@ class Chromos():
 
     pass
 
-
-"""
-class A:
-    
-    def __init__(self):
-        self.m = "Hello"
-
-    pass
-
-class B:
-
-    def __init__(self):
-        self.n = "Hi"
-
-    pass
-
-class C(A, B):
-    
-    def __init__(self):
-        self.p = "Heu!"
-        A.__init__(self)
-        B.__init__(self)
-
-    def print(self):
-
-        print(self.p, A.m, B.n)
-
-    pass
-"""
