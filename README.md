@@ -5,7 +5,7 @@
     
 		python3 setup.py bdist_wheel
 -->
-	With Wheel File	\n
+	With Wheel File
 		pip install Chromos*.whl
 		
 ## Basic Example
