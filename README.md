@@ -27,4 +27,4 @@
 
 And Similarly for other attributes.
 
-#### Note Bold is enabled by default.
+#### Note: Bold is enabled by default.
