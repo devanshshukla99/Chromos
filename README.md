@@ -9,6 +9,8 @@
                                             
 ```
 
+Package for gettting colored text output in python.
+
 ## Installation
 <!--    ### With setup.py
     
