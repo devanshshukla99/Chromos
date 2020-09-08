@@ -4,7 +4,8 @@
 class Chromos():
 
     def __init__(self):
-        
+        super(Chromos, self).__init__()
+
         self.base_attr = "\033["
 
         self.no_style = False
