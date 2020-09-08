@@ -106,10 +106,29 @@ class Chromos():
         
         return self.attr + self.txt_colors["white"] + "m" + string
 
+    def info(self, string):
+
+        print(self.red("[") + self.blue("*") + self.red("]") + " " + self.red(string))
+
+        return
+
+    def info_y(self, string):
+
+        print(self.blue("[") + self.red("!") + self.blue("]") + " " + self.yellow(string))
+
+        return
+
     def error_info(self, string):
         
+        print(self.blue("[") + self.red("!") + self.blue("]") + " " + self.red(string))
+        # print(self.red("[") + self.blue("!") + self.red("]") + " " + self.red(string))
+
+        return
+
+    def error_info_b(self, string):
+        
         print(self.blue("[") + self.red("!") + self.blue("]") + " " + self.blue(string))
-        print(self.red("[") + self.blue("!") + self.red("]") + " " + self.red(string))
+        # print(self.red("[") + self.blue("!") + self.red("]") + " " + self.red(string))
 
         return
 
