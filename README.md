@@ -17,10 +17,12 @@
 
    * **pip install Chromos\*.whl**
 
-Attributes Supported:
- * Bold (default=**True**)
- * Underline (default=**False**)
- * Negative styles (default=**False**)
+## Attributes Supported:
+
+ * Text:
+   * Bold (default=**True**)
+   * Underline (default=**False**)
+   * Negative styles (default=**False**)
 
  * Text Colors:
    * Black
@@ -31,6 +33,7 @@ Attributes Supported:
    * Purple
    * Cyan
    * White
+   
  * Background Colors:
    * Black
    * Red
