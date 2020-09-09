@@ -79,7 +79,15 @@ class Chromos():
         return
 
     def cstr(self, color, string):
-        
+        """
+        Parameters:
+            color (str): Color.
+            string (str): Text.
+
+        Returns:
+            str: Text with Appropiate Prefix and Suffix.
+        """
+
         self.get_attr()
 
         try:
