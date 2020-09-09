@@ -91,7 +91,7 @@ class Chromos():
         self.get_attr()
 
         try:
-            return ''.join([self.attr, self.txt_colors[color.lower()], "m", string])
+            return ''.join([self.attr, self.txt_colors[color.lower()], "m", string, "\033[0m"])
         except KeyError:
             raise InvalidColor
 
@@ -100,67 +100,65 @@ class Chromos():
 
         self.get_attr()
         
-        return self.attr + self.txt_colors["blue"] + "m" + string
+        return ''.join([self.attr, self.txt_colors["blue"], "m", string, "\033[0m"])
 
     def red(self, string):
 
         self.get_attr()
         
-        return self.attr + self.txt_colors["red"] + "m" + string
+        return ''.join([self.attr, self.txt_colors["red"], "m", string, "\033[0m"])
 
     def green(self, string):
 
         self.get_attr()
         
-        return self.attr + self.txt_colors["green"] + "m" + string
+        return ''.join([self.attr, self.txt_colors["green"], "m", string, "\033[0m"])
 
     def yellow(self, string):
 
         self.get_attr()
         
-        return self.attr + self.txt_colors["yellow"] + "m" + string
+        return ''.join([self.attr, self.txt_colors["yellow"], "m", string, "\033[0m"])
 
     def purple(self, string):
 
         self.get_attr()
         
-        return self.attr + self.txt_colors["purple"] + "m" + string
+        return ''.join([self.attr, self.txt_colors["purple"], "m", string, "\033[0m"])
 
     def cyan(self, string):
 
         self.get_attr()
         
-        return self.attr + self.txt_colors["cyan"] + "m" + string
+        return ''.join([self.attr, self.txt_colors["cyan"], "m", string, "\033[0m"])
 
     def white(self, string):
 
         self.get_attr()
         
-        return self.attr + self.txt_colors["white"] + "m" + string
+        return ''.join([self.attr, self.txt_colors["while"], "m", string, "\033[0m"])
 
     def info(self, string):
 
-        print(self.red("[") + self.blue("*") + self.red("]") + " " + self.red(string))
-
+        print(''.join([self.red("["), self.blue("*"), self.red("]"), " ", self.red(string)]))
+        
         return
 
     def info_y(self, string):
 
-        print(self.blue("[") + self.red("!") + self.blue("]") + " " + self.yellow(string))
+        print(''.join([self.blue("["), self.red("!"), self.blue("]"), " ", self.yellow(string)]))
 
         return
 
     def error_info(self, string):
         
-        print(self.blue("[") + self.red("!") + self.blue("]") + " " + self.red(string))
-        # print(self.red("[") + self.blue("!") + self.red("]") + " " + self.red(string))
+        print(''.join([self.blue("["), self.red("!"), self.blue("]"), " ", self.red(string)]))
 
         return
 
     def error_info_b(self, string):
         
-        print(self.blue("[") + self.red("!") + self.blue("]") + " " + self.blue(string))
-        # print(self.red("[") + self.blue("!") + self.red("]") + " " + self.red(string))
+        print(''.join([self.blue("["), self.red("!"), self.blue("]"), " ", self.blue(string)]))
 
         return
 
