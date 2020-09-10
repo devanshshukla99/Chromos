@@ -3,7 +3,7 @@
 
 class InvalidColor(Exception):
     """
-    Exception Raise when Invalid Color is entered.
+    Exception Raised when Invalid Color is entered.
     """
     def __init__(self, message="Invalid Color"):
         self.message = message
