@@ -14,8 +14,13 @@
 ## Installation
 
  * With Wheel File
-
    * **pip install Chromos\*.whl**
+ 
+ * Building From Source
+   * Use **setup.py** either to install or to create the wheel file. 
+   * Running **setup.py bdist_wheel** creates a wheel file which can then be used with **pip**.
+   * Finally, executing **pip install Chromos\*.whl** installs the wheel file.
+
 
 ## Attributes Supported:
 
@@ -33,7 +38,7 @@
    * Purple
    * Cyan
    * White
-   
+
  * Background Colors:
    * Black
    * Red
