@@ -59,9 +59,9 @@
 
 ## Example
 Illustration of usage
-
-	import Chromos
-	o = Chromos.Chromos()
-	print(o.cstr("blue", "Hello World! *"))
-	print(o.blue("Hey Chromos! "))
-
+```python
+import Chromos
+o = Chromos.Chromos()
+print(o.cstr("blue", "Hello World! *"))
+print(o.blue("Hey Chromos! "))
+```
