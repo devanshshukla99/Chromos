@@ -24,12 +24,12 @@
 
 ## Attributes Supported:
 
- * Text:
+ **Text:**
    * Bold (default=**True**)
    * Underline (default=**False**)
    * Negative styles (default=**False**)
 
- * Text Colors:
+ **Text Colors:**
    * Black
    * Red
    * Green
@@ -39,7 +39,7 @@
    * Cyan
    * White
 
- * Background Colors:
+ **Background Colors:**
    * Black
    * Red
    * Green
