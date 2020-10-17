@@ -58,7 +58,9 @@
   * etc....
 
 ## Example
-Illustration of usage
+
+**Illustration of usage**
+
 ```python
 import Chromos
 o = Chromos.Chromos()
