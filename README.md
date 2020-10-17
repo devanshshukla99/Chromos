@@ -26,9 +26,11 @@
 
  **Text:**
    * Bold (default=**True**)
+   * Itallic (default=**False**)
    * Underline (default=**False**)
-   * Negative styles (default=**False**)
-
+   * Blink (default=**False**)
+   * Strikethrough (default=**False**)
+   
  **Text Colors:**
    * Black
    * Red
