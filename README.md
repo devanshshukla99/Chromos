@@ -24,12 +24,12 @@
 
 ## Attributes Supported:
 
- * Text:
+ **Text:**
    * Bold (default=**True**)
    * Underline (default=**False**)
    * Negative styles (default=**False**)
 
- * Text Colors:
+ **Text Colors:**
    * Black
    * Red
    * Green
@@ -39,7 +39,7 @@
    * Cyan
    * White
 
- * Background Colors:
+ **Background Colors:**
    * Black
    * Red
    * Green
@@ -59,9 +59,9 @@
 
 ## Example
 Illustration of usage
-
-	import Chromos
-	o = Chromos.Chromos()
-	print(o.cstr("blue", "Hello World! *"))
-	print(o.blue("Hey Chromos! "))
-
+```python
+import Chromos
+o = Chromos.Chromos()
+print(o.cstr("blue", "Hello World! *"))
+print(o.blue("Hey Chromos! "))
+```
