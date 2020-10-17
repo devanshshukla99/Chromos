@@ -65,3 +65,5 @@ o = Chromos.Chromos()
 print(o.cstr("blue", "Hello World! *"))
 print(o.blue("Hey Chromos! "))
 ```
+
+![Alt text](Imgs/chromos_img.png)
