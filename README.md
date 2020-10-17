@@ -9,7 +9,7 @@
                                             
 ```
 
-**Package for gettting colored text output in Python.**
+**Package for getting colored text output in Python.**
 
 ## Installation
 
