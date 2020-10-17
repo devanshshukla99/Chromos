@@ -117,7 +117,7 @@ class Chromos():
         except KeyError:
             raise InvalidColor
     
-    def attribute_intrepretor(self, args):
+    def attribute_interpretor(self, args):
         """
         bl  --  blink
         it  --  itallic
@@ -168,7 +168,7 @@ class Chromos():
         args.pop(-1)
 
         try:
-            attr = self.attribute_intrepretor(args)
+            attr = self.attribute_interpretor(args)
         except KeyError:
             raise InvalidAttribute
 
@@ -176,8 +176,6 @@ class Chromos():
             return ''.join([attr, self.txt_colors[color.lower()], "m", string, "\033[0m"])
         except KeyError:
             raise InvalidColor
-
-    # Preserving Individual Funcs for Compatibility Reasons
 
     def blue(self, string):
 
