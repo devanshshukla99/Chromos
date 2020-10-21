@@ -81,6 +81,8 @@ class Chromos():
 
         self.base_attr = "\033["
 
+        self.default_bgcolor = "bgblack"
+        
         self.no_style = False
         self.bold = True
         self.itallic = False
@@ -206,7 +208,7 @@ class Chromos():
                 raise InvalidDelimiter
         
         color = args[0].lower()
-        bgcolor = "bgblack"
+        bgcolor = self.default_bgcolor
         color_attr = ""
 
         if(len(args)>1):
