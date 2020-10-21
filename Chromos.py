@@ -202,10 +202,7 @@ class Chromos():
         """
 
         if(type(args) is str):
-            argstr = args
             args = args.split(" ")
-            if(args[0] == argstr):
-                raise InvalidDelimiter
         
         color = args[0].lower()
         bgcolor = self.default_bgcolor
