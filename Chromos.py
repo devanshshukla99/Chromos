@@ -137,7 +137,14 @@ class Chromos():
             "underline":"4",
             "blink": "5",
             "strikethrough": "9"
-
+        }
+        
+        self.attrinter = {
+            "bf": "bold",
+            "it": "itallic",
+            "u": "underline",
+            "blk": "blink",
+            "st": "strikethrough"
         }
     
     def get_attr(self):
