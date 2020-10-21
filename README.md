@@ -42,7 +42,7 @@
    * White
 
  **Background Colors:**
-   * Black
+   * Black  (default)
    * Red
    * Green
    * Yellow
@@ -53,10 +53,10 @@
 
 ## Usage
 * Use cstr function for the colored text,
-  * cstr(self, color, string)
+  * cstr('\<color> \<bgcolor, optional>  \<attributes>', '\<string>')
 * Can also use Individual color functions,
-  * blue(self, string)
-  * red(self, string)
+  * blue('\<color>', '\<string>')
+  * red('\<color>', '\<string>')
   * etc....
 
 ## Example
@@ -66,8 +66,48 @@
 ```python
 import Chromos
 o = Chromos.Chromos()
+```
+```python
 print(o.cstr("blue", "Hello World! *"))
 print(o.blue("Hey Chromos! "))
 ```
 
-![Alt text](Imgs/chromos_img.png)
+![Alt text](Imgs/chromos_hey.png)
+
+**Global Attributes**
+```python
+o.underline = True
+print(o.cstr("yellow", "Good stuff!"))
+```
+![Alt text](Imgs/chromos_good_stuff.png)
+
+```python
+o.itallic = True
+o.strikethrough = True
+print(o.cstr("red", "Alright, alright!"))
+```
+![Alt text](Imgs/chromos_enough.png)
+
+**Local Attributes**
+```python
+print(o.cstr("yellow underline", "Cool!"))
+```
+![Alt text](Imgs/chromos_cool.png)
+
+```python
+print(o.cstr("yellow bgred bf", "Great!"))
+```
+
+![Alt text](Imgs/chromos_great.png)
+
+```python
+o.error_info("This is an Error Msg!" )
+```
+
+![Alt text](Imgs/chromos_error.png)
+
+```python
+o.info_y("This is an Info Msg!" )
+```
+![Alt text](Imgs/chromos_info.png)
+
