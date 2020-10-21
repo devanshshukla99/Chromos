@@ -27,12 +27,31 @@ class Chromos():
     """
     Chromos provides colored-text terminal output.
 
+    Colors:
+        Black    --    black
+        Red      --    red
+        Green    --    green
+        Yellow   --    yellow
+        Blue     --    blue
+        Purple   --    purple
+        Cyan     --    cyan
+        White    --    white
+
+    Background Colors:
+        Black    --    bgblack
+        Red      --    bgred
+        Yellow   --    bgyellow
+        Blue     --    bgblue
+        Purple   --    bgpurple
+        Cyan     --    bgcyan
+        White    --    bg white
+
     Styles:
-        Bold
-        Itallic         (may not be supported)
-        Underline
-        Blink           (may not be supported)
-        Strikethrough
+        (bf)   Bold
+        (it)   Itallic         (may not be supported)
+        (u)    Underline
+        (blk)  Blink           (may not be supported)
+        (st)   Strikethrough
     """
 
     def __init__(self):
