@@ -167,23 +167,6 @@ class Chromos():
 
         return
 
-    def cstr(self, color, string):
-        """
-        Parameters:
-            color (str): Color.
-            string (str): Text.
-
-        Returns:
-            str: Text with Appropiate Prefix and Suffix.
-        """
-
-        self.get_attr()
-
-        try:
-            return ''.join([self.attr, self.txt_colors[color.lower()], "m", string, "\033[0m"])
-        except KeyError:
-            raise InvalidColor
-    
     def attribute_interpretor(self, args):
         """
         bl  --  blink
@@ -192,20 +175,7 @@ class Chromos():
         blk --  blink
         st  --  strikethrough
         """
-        attrinter = {
-                "bf": "bold",
-                "it": "itallic",
-                "u": "underline",
-                "blk": "blink",
-                "st": "strikethrough"
-                # "bold": "bold",
-                # "itallic": "itallic",
-                # "underline": "underline",
-                # "blink": "blink",
-                # "strikethrough": "strikethrough"
-                }
 
-        args = args[0].split(" ")
         attr = self.base_attr
 
         for arg in args:
@@ -213,42 +183,57 @@ class Chromos():
             if(len(arg.lower()) > 3):
                 attr = ''.join([attr, self.style[arg.lower()], ";"])
             else:
-                attr = ''.join([attr, self.style[attrinter[arg.lower()]], ";"])
+                attr = ''.join([attr, self.style[self.attrinter[arg.lower()]], ";"])
 
         return attr
 
-    def cstrattr(self, args):
+    def cstr(self, args, string):
         """
         Parameters:
             args[0]: color (str): Color.
-            args[1:-1]: Attributes
+            args[1]: bgcolor (optional) (str): Background Color.
+            args[1:-1]: (optional) Attributes.
             args[-1]: string (str): Text.
 
         Returns:
             str: Text with Appropiate Prefix and Suffix.
         """
 
-        color = args[0]
-        string = args[-1]
+        if(type(args) is str):
+            argstr = args
+            args = args.split(" ")
+            if(args[0] == argstr):
+                raise InvalidDelimiter
+        
+        color = args[0].lower()
+        bgcolor = "bgblack"
+        color_attr = ""
+
+        if(len(args)>1):
+            if(args[1][0:2]=="bg"):
+                bgcolor = args[1].lower()
+                args.pop(1)
+                try:
+                    color_attr = ''.join([self.colors[bgcolor], ";"])
+                except KeyError:
+                    raise InvalidBGColor
 
         args.pop(0)
-        args.pop(-1)
 
         try:
-            attr = self.attribute_interpretor(args)
-        except KeyError:
-            raise InvalidAttribute
-
-        try:
-            return ''.join([attr, self.txt_colors[color.lower()], "m", string, "\033[0m"])
+            color_attr = ''.join([color_attr, self.colors[color]])
         except KeyError:
             raise InvalidColor
 
-    def blue(self, string):
+        if(args):
+            try:
+                self.attr = self.attribute_interpretor(args)
+            except KeyError:
+                raise InvalidAttribute
+        else:
+            self.get_attr()
 
-        self.get_attr()
-        
-        return ''.join([self.attr, self.colors["blue"], "m", string, "\033[0m"])
+        return ''.join([self.attr, color_attr, "m", string, "\033[0m"])
 
     def help(self):
         print("""
