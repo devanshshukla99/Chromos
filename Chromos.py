@@ -12,6 +12,28 @@ class InvalidColor(Exception):
 
     pass
 
+class InvalidBGColor(Exception):
+    """
+    Exception Raised when Invalid Background Color is entered.
+    """
+    def __init__(self, message="Invalid Background Color"):
+        self.message = message
+
+        super().__init__(self.message)
+
+    pass
+
+class InvalidDelimiter(Exception):
+    """
+    Exception Raised when the Delimiter is Invalid
+    """
+    def __init__(self, message=''.join(["Invalid Delimiter\n\n", "\033[1;31m[\033[0m", "\033[1;34m!\033[0m", "\033[1;31m]\033[0m", " Use ' ' as the delimiter\n"])):
+        self.message = message
+
+        super().__init__(self.message)
+
+    pass
+
 class InvalidAttribute(Exception):
     """
     Exception Raised when Invalid Attribute is entered.
