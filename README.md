@@ -72,41 +72,41 @@ print(o.cstr("blue", "Hello World! *"))
 print(o.blue("Hey Chromos! "))
 ```
 
-<img src="Imgs/chromos_hey.png" width="500px">
+<img src="Imgs/chromos_hey.png" width="500px" height="60px">
 
 **Global Attributes**
 ```python
 o.underline = True
 print(o.cstr("yellow", "Good stuff!"))
 ```
-<img src="Imgs/chromos_good_stuff.png" width="500px">
+<img src="Imgs/chromos_good_stuff.png" width="500px" height="45px">
 
 ```python
 o.itallic = True
 o.strikethrough = True
 print(o.cstr("red", "Alright, alright!"))
 ```
-<img src="Imgs/chromos_alright.png" width="500px">
+<img src="Imgs/chromos_alright.png" width="500px" height="45px">
 
 **Local Attributes**
 ```python
 print(o.cstr("yellow underline", "Cool!"))
 ```
-<img src="Imgs/chromos_cool.png" width="500px">
+<img src="Imgs/chromos_cool.png" width="500px" height="45px">
 
 ```python
 print(o.cstr("yellow bgred bf", "Great!"))
 ```
 
-<img src="Imgs/chromos_great.png" width="500px">
+<img src="Imgs/chromos_great.png" width="500px" height="45px">
 
 ```python
 o.error_info("This is an Error Msg!" )
 ```
 
-<img src="Imgs/chromos_error.png" width="500px">
+<img src="Imgs/chromos_error.png" width="500px" height="45px">
 
 ```python
 o.info_y("This is an Info Msg!" )
 ```
-<img src="Imgs/chromos_info.png" width="500px">
+<img src="Imgs/chromos_info.png" width="500px" height="45px">
