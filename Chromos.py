@@ -352,7 +352,7 @@ class Chromos():
         info_y('<string'>)
         """
 
-        print(''.join([self.blue("["), self.red("!"), self.blue("]"), " ", self.yellow(string)]))
+        print(''.join([self.blue("["), self.red("*"), self.blue("]"), " ", self.yellow(string)]))
 
         return
 
