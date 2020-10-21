@@ -191,6 +191,8 @@ class Chromos():
 
     def cstr(self, args, string):
         """
+        cstr('<color> <bgcolor, optional> <attributes>', '<string>')
+
         Parameters:
             args[0]: color (str): Color.
             args[1]: bgcolor (optional) (str): Background Color.
@@ -263,71 +265,111 @@ class Chromos():
             (u)    Underline
             (blk)  Blink           (may not be supported)
             (st)   Strikethrough
+
+        cstr('<color> <bgcolor, optional> <attributes>', '<string>')
+        blue('<color>', '<string>')
+        info('<string'>)
+        info_y('<string'>)
+        error_info('<string>')
+        error_info_b('<string>')
         """)
 
 
     def blue(self, string):
+        """
+        blue('<color>', '<string>')
+        """
 
         self.get_attr()
         
         return ''.join([self.attr, self.colors["blue"], "m", string, "\033[0m"])
 
     def red(self, string):
+        """
+        red('<color>', '<string>')
+        """
 
         self.get_attr()
         
         return ''.join([self.attr, self.colors["red"], "m", string, "\033[0m"])
 
     def green(self, string):
+        """
+        green('<color>', '<string>')
+        """
 
         self.get_attr()
         
         return ''.join([self.attr, self.colors["green"], "m", string, "\033[0m"])
 
     def yellow(self, string):
+        """
+        yellow('<color>', '<string>')
+        """
 
         self.get_attr()
         
         return ''.join([self.attr, self.colors["yellow"], "m", string, "\033[0m"])
 
     def purple(self, string):
+        """
+        purple('<color>', '<string>')
+        """
 
         self.get_attr()
         
         return ''.join([self.attr, self.colors["purple"], "m", string, "\033[0m"])
 
     def cyan(self, string):
+        """
+        cyan('<color>', '<string>')
+        """
 
         self.get_attr()
         
         return ''.join([self.attr, self.colors["cyan"], "m", string, "\033[0m"])
 
     def white(self, string):
+        """
+        white('<color>', '<string>')
+        """
 
         self.get_attr()
         
         return ''.join([self.attr, self.colors["while"], "m", string, "\033[0m"])
 
     def info(self, string):
+        """
+        info('<string'>)
+        """
 
         print(''.join([self.red("["), self.blue("*"), self.red("]"), " ", self.red(string)]))
         
         return
 
     def info_y(self, string):
+        """
+        info_y('<string'>)
+        """
 
         print(''.join([self.blue("["), self.red("!"), self.blue("]"), " ", self.yellow(string)]))
 
         return
 
     def error_info(self, string):
-        
+        """
+        error_info('<string>')
+        """
+
         print(''.join([self.blue("["), self.red("!"), self.blue("]"), " ", self.red(string)]))
 
         return
 
     def error_info_b(self, string):
-        
+        """
+        error_info_b('<string>')
+        """
+
         print(''.join([self.blue("["), self.red("!"), self.blue("]"), " ", self.blue(string)]))
 
         return
