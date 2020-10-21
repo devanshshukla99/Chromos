@@ -48,7 +48,29 @@ class Chromos():
         self.strikethrough = False
         self.attr = self.base_attr
 
-        self.txt_colors = {
+        # self.txt_colors = {
+        #     "black":"30",
+        #     "red":"31",
+        #     "green":"32",
+        #     "yellow":"33",
+        #     "blue":"34",
+        #     "purple":"35",
+        #     "cyan":"36",
+        #     "white":"37"
+        # }
+
+        # self.bg_colors = {
+        #     "black":"40",
+        #     "red":"41",
+        #     "green":"42",
+        #     "yellow":"43",
+        #     "blue":"44",
+        #     "purple":"45",
+        #     "cyan":"46",
+        #     "white":"47"
+        # }
+
+        self.colors = {
             "black":"30",
             "red":"31",
             "green":"32",
@@ -56,18 +78,15 @@ class Chromos():
             "blue":"34",
             "purple":"35",
             "cyan":"36",
-            "white":"37"
-        }
-
-        self.bg_colors = {
-            "black":"40",
-            "red":"41",
-            "green":"42",
-            "yellow":"43",
-            "blue":"44",
-            "purple":"45",
-            "cyan":"46",
-            "white":"47"
+            "white":"37",
+            "bgblack":"40",
+            "bgred":"41",
+            "bggreen":"42",
+            "bgyellow":"43",
+            "bgblue":"44",
+            "bgpurple":"45",
+            "bgcyan":"46",
+            "bgwhite":"47"
         }
 
         self.style = {
@@ -215,41 +234,47 @@ class Chromos():
         """)
 
 
+    def blue(self, string):
+
+        self.get_attr()
+        
+        return ''.join([self.attr, self.colors["blue"], "m", string, "\033[0m"])
+
     def red(self, string):
 
         self.get_attr()
         
-        return ''.join([self.attr, self.txt_colors["red"], "m", string, "\033[0m"])
+        return ''.join([self.attr, self.colors["red"], "m", string, "\033[0m"])
 
     def green(self, string):
 
         self.get_attr()
         
-        return ''.join([self.attr, self.txt_colors["green"], "m", string, "\033[0m"])
+        return ''.join([self.attr, self.colors["green"], "m", string, "\033[0m"])
 
     def yellow(self, string):
 
         self.get_attr()
         
-        return ''.join([self.attr, self.txt_colors["yellow"], "m", string, "\033[0m"])
+        return ''.join([self.attr, self.colors["yellow"], "m", string, "\033[0m"])
 
     def purple(self, string):
 
         self.get_attr()
         
-        return ''.join([self.attr, self.txt_colors["purple"], "m", string, "\033[0m"])
+        return ''.join([self.attr, self.colors["purple"], "m", string, "\033[0m"])
 
     def cyan(self, string):
 
         self.get_attr()
         
-        return ''.join([self.attr, self.txt_colors["cyan"], "m", string, "\033[0m"])
+        return ''.join([self.attr, self.colors["cyan"], "m", string, "\033[0m"])
 
     def white(self, string):
 
         self.get_attr()
         
-        return ''.join([self.attr, self.txt_colors["while"], "m", string, "\033[0m"])
+        return ''.join([self.attr, self.colors["while"], "m", string, "\033[0m"])
 
     def info(self, string):
 
