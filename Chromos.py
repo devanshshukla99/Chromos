@@ -181,7 +181,39 @@ class Chromos():
 
         self.get_attr()
         
-        return ''.join([self.attr, self.txt_colors["blue"], "m", string, "\033[0m"])
+        return ''.join([self.attr, self.colors["blue"], "m", string, "\033[0m"])
+
+    def help(self):
+        print("""
+        Chromos provides colored-text terminal output.
+
+        Colors:
+            Black    --    black
+            Red      --    red
+            Green    --    green
+            Yellow   --    yellow
+            Blue     --    blue
+            Purple   --    purple
+            Cyan     --    cyan
+            White    --    white
+
+        Background Colors:
+            Black    --    bgblack
+            Red      --    bgred
+            Yellow   --    bgyellow
+            Blue     --    bgblue
+            Purple   --    bgpurple
+            Cyan     --    bgcyan
+            White    --    bg white
+
+        Styles:
+            (bf)   Bold
+            (it)   Itallic         (may not be supported)
+            (u)    Underline
+            (blk)  Blink           (may not be supported)
+            (st)   Strikethrough
+        """)
+
 
     def red(self, string):
 
