@@ -76,6 +76,14 @@ class Chromos():
         (u)    Underline
         (blk)  Blink           (may not be supported)
         (st)   Strikethrough
+    
+    Functions:
+        cstr('<color> <bgcolor, optional> <attributes>', '<string>')
+        blue('<color>', '<string>')
+        info('<string>')
+        info_y('<string>')
+        error_info('<string>')
+        error_info_b('<string>')
     """
 
     def __init__(self):
@@ -267,13 +275,14 @@ class Chromos():
             (u)    Underline
             (blk)  Blink           (may not be supported)
             (st)   Strikethrough
-
-        cstr('<color> <bgcolor, optional> <attributes>', '<string>')
-        blue('<color>', '<string>')
-        info('<string'>)
-        info_y('<string'>)
-        error_info('<string>')
-        error_info_b('<string>')
+        
+        Functions:
+            cstr('<color> <bgcolor, optional> <attributes>', '<string>')
+            blue('<color>', '<string>')
+            info('<string>')
+            info_y('<string>')
+            error_info('<string>')
+            error_info_b('<string>')
         """)
         
         return
@@ -343,7 +352,7 @@ class Chromos():
 
     def info(self, string):
         """
-        info('<string'>)
+        info('<string>')
         """
 
         print(''.join([self.red("["), self.blue("*"), self.red("]"), " ", self.red(string)]))
@@ -352,7 +361,7 @@ class Chromos():
 
     def info_y(self, string):
         """
-        info_y('<string'>)
+        info_y('<string>')
         """
 
         print(''.join([self.blue("["), self.red("*"), self.blue("]"), " ", self.yellow(string)]))
