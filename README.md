@@ -57,7 +57,13 @@
 * Can also use Individual color functions,
   * blue('\<color>', '\<string>')
   * red('\<color>', '\<string>')
-  * etc....
+  * Similarly for other colors...
+* For Printing an Error Message
+  * error_info('\<string>')
+  * error_info_b('\<string>')
+* For Printing an Info Message
+  * info('\<string>')
+  * info_y('\<string>')   
 
 ## Example
 
@@ -100,12 +106,13 @@ print(o.cstr("yellow bgred bf", "Great!"))
 
 <img src="Imgs/chromos_great.png" width="500px" height="45px">
 
+**Function For Printing an Error Message**
 ```python
 o.error_info("This is an Error Msg!" )
 ```
-
 <img src="Imgs/chromos_error.png" width="500px" height="45px">
 
+**Function For Printing an Info Message**
 ```python
 o.info_y("This is an Info Msg!" )
 ```
