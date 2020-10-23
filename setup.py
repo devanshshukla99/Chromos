@@ -6,10 +6,10 @@ with open("README.md", "r") as fh:
  
 setuptools.setup(
      name='Chromos',
-     version='1.4',
+     version='2.0',
      scripts=['Chromos.py'] ,
      author="devanshshukla99",
-     description="A Package for Getting Colored Text in CLI ",
+     description="Package for getting colored text output in Python terminal",
      long_description= long_description,
      long_description_content_type="text/markdown",
      url="https://github.com/devanshshukla99/Chromos",
