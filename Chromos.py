@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-#Colored Text Model
+"""
+Package for getting colored text output in Python terminal
+"""
 
 class InvalidColor(Exception):
     """
@@ -273,7 +275,8 @@ class Chromos():
         error_info('<string>')
         error_info_b('<string>')
         """)
-
+        
+        return
 
     def blue(self, string):
         """
