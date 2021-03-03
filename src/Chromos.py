@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+from sys import stdout
+
 """
 Package for getting colored text output in Python terminal
 """
@@ -9,7 +11,6 @@ class InvalidColor(Exception):
     """
     def __init__(self, message="Invalid Color"):
         self.message = message
-
         super().__init__(self.message)
 
     pass
@@ -20,7 +21,6 @@ class InvalidBGColor(Exception):
     """
     def __init__(self, message="Invalid Background Color"):
         self.message = message
-
         super().__init__(self.message)
 
     pass
@@ -31,7 +31,6 @@ class InvalidDelimiter(Exception):
     """
     def __init__(self, message=''.join(["Invalid Delimiter\n\n", "\033[1;31m[\033[0m", "\033[1;34m!\033[0m", "\033[1;31m]\033[0m", " Use ' ' as the delimiter\n"])):
         self.message = message
-
         super().__init__(self.message)
 
     pass
@@ -42,7 +41,6 @@ class InvalidAttribute(Exception):
     """
     def __init__(self, message="Invalid Attribute"):
         self.message = message
-
         super().__init__(self.message)
 
     pass
@@ -86,44 +84,16 @@ class Chromos():
         error_info_b('<string>')
     """
 
-    def __init__(self):
-        super(Chromos, self).__init__()
-
-        self.base_attr = "\033["
-
-        self.default_bgcolor = "bgblack"
-        
-        self.no_style = False
-        self.bold = True
-        self.itallic = False
-        self.underline = False
-        self.blink = False
-        self.strikethrough = False
-        self.attr = self.base_attr
-
-        # self.txt_colors = {
-        #     "black":"30",
-        #     "red":"31",
-        #     "green":"32",
-        #     "yellow":"33",
-        #     "blue":"34",
-        #     "purple":"35",
-        #     "cyan":"36",
-        #     "white":"37"
-        # }
-
-        # self.bg_colors = {
-        #     "black":"40",
-        #     "red":"41",
-        #     "green":"42",
-        #     "yellow":"43",
-        #     "blue":"44",
-        #     "purple":"45",
-        #     "cyan":"46",
-        #     "white":"47"
-        # }
-
-        self.colors = {
+    base_attr = '\033['
+    attr = base_attr
+    default_bgcolor = 'bgblack'
+    no_style = False
+    bold = True
+    itallic = False
+    underline = False
+    blink = False
+    strikethrough = False
+    colors = {
             "black":"30",
             "red":"31",
             "green":"32",
@@ -142,7 +112,7 @@ class Chromos():
             "bgwhite":"47"
         }
 
-        self.style = {
+    style = {
             "no_style":"0",
             "bold":"1",
             "itallic": "3",
@@ -150,17 +120,16 @@ class Chromos():
             "blink": "5",
             "strikethrough": "9"
         }
-        
-        self.attrinter = {
+
+    attrinter = {
             "bf": "bold",
             "it": "itallic",
             "u": "underline",
             "blk": "blink",
             "st": "strikethrough"
         }
-    
-    def get_attr(self):
 
+    def get_attr(self):
         self.attr = self.base_attr
 
         if(self.no_style==False):
@@ -191,7 +160,6 @@ class Chromos():
         attr = self.base_attr
 
         for arg in args:
-
             if(len(arg.lower()) > 3):
                 attr = ''.join([attr, self.style[arg.lower()], ";"])
             else:
@@ -199,7 +167,7 @@ class Chromos():
 
         return attr
 
-    def cstr(self, args, string):
+    def cstr(self, args:'Arguments (str)', string:'Text (str)'):
         """
         cstr('<color> <bgcolor, optional> <attributes>', '<string>')
 
@@ -213,8 +181,7 @@ class Chromos():
             str: Text with Appropiate Prefix and Suffix.
         """
 
-        if(type(args) is str):
-            args = args.split(" ")
+        if(type(args) is str): args = args.split(' ')
         
         color = args[0].lower()
         bgcolor = self.default_bgcolor
@@ -247,7 +214,7 @@ class Chromos():
         return ''.join([self.attr, color_attr, "m", string, "\033[0m"])
 
     def help(self):
-        print("""
+        stdout.write("""
         Chromos provides colored-text terminal output.
 
         Colors:
@@ -284,106 +251,108 @@ class Chromos():
             error_info('<string>')
             error_info_b('<string>')
         """)
+        stdout.flush()
         
         return
 
-    def blue(self, string):
+    def black(self, string:str)->str:
+        """
+        black('<color>', '<string>')
+        """
+        self.get_attr()
+
+        return ''.join([self.attr, self.colors["black"], "m", string, "\033[0m"])
+
+    def blue(self, string:str)->str:
         """
         blue('<color>', '<string>')
         """
-
         self.get_attr()
-        
+
         return ''.join([self.attr, self.colors["blue"], "m", string, "\033[0m"])
 
-    def red(self, string):
+    def red(self, string:str)->str:
         """
         red('<color>', '<string>')
         """
-
         self.get_attr()
         
         return ''.join([self.attr, self.colors["red"], "m", string, "\033[0m"])
 
-    def green(self, string):
+    def green(self, string:str)->str:
         """
         green('<color>', '<string>')
         """
-
         self.get_attr()
         
         return ''.join([self.attr, self.colors["green"], "m", string, "\033[0m"])
 
-    def yellow(self, string):
+    def yellow(self, string:str)->str:
         """
         yellow('<color>', '<string>')
         """
-
         self.get_attr()
         
         return ''.join([self.attr, self.colors["yellow"], "m", string, "\033[0m"])
 
-    def purple(self, string):
+    def purple(self, string:str)->str:
         """
         purple('<color>', '<string>')
         """
-
         self.get_attr()
         
         return ''.join([self.attr, self.colors["purple"], "m", string, "\033[0m"])
 
-    def cyan(self, string):
+    def cyan(self, string:str)->str:
         """
         cyan('<color>', '<string>')
         """
-
         self.get_attr()
         
         return ''.join([self.attr, self.colors["cyan"], "m", string, "\033[0m"])
 
-    def white(self, string):
+    def white(self, string:str)->str:
         """
         white('<color>', '<string>')
         """
-
         self.get_attr()
         
-        return ''.join([self.attr, self.colors["while"], "m", string, "\033[0m"])
+        return ''.join([self.attr, self.colors["white"], "m", string, "\033[0m"])
 
-    def info(self, string):
+    def info(self, string:str)->None:
         """
         info('<string>')
         """
-
-        print(''.join([self.red("["), self.blue("*"), self.red("]"), " ", self.red(string)]))
+        stdout.write(''.join([self.red("["), self.blue("*"), self.red("]"), " ", self.red(string)]))
+        stdout.flush()
         
         return
 
-    def info_y(self, string):
+    def info_y(self, string:str)->None:
         """
         info_y('<string>')
         """
-
-        print(''.join([self.blue("["), self.red("*"), self.blue("]"), " ", self.yellow(string)]))
+        stdout.write(''.join([self.blue("["), self.red("*"), self.blue("]"), " ", self.yellow(string)]))
+        stdout.flush()
 
         return
 
-    def error_info(self, string):
+    def error_info(self, string:str)->None:
         """
         error_info('<string>')
         """
-
-        print(''.join([self.blue("["), self.red("!"), self.blue("]"), " ", self.red(string)]))
+        stdout.write(''.join([self.blue("["), self.red("!"), self.blue("]"), " ", self.red(string)]))
+        stdout.flush()
 
         return
 
-    def error_info_b(self, string):
+    def error_info_b(self, string:str)->None:
         """
         error_info_b('<string>')
         """
-
-        print(''.join([self.blue("["), self.red("!"), self.blue("]"), " ", self.blue(string)]))
-
+        stdout.write(''.join([self.blue("["), self.red("!"), self.blue("]"), " ", self.blue(string)]))
+        stdout.flush()
+        
         return
 
     pass
