@@ -1,6 +1,6 @@
 # Testing Chromos
 # import unittest
-from Chromos import Chromos
+from .Chromos import Chromos
 import pytest
 
 @pytest.fixture
