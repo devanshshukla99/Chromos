@@ -14,22 +14,22 @@
 ## Installation
 
  * With Wheel File
-   * **pip install Chromos\*.whl**
+   * `pip install Chromos\*.whl`
  
  * Building From Source
-   * Use **setup.py** either to install or to create the wheel file. 
-   * Running **setup.py bdist_wheel** creates a wheel file which can then be used with **pip**.
-   * Finally, executing **pip install Chromos\*.whl** installs the wheel file.
+   * Use `setup.py` either to install or to create the wheel file. 
+   * Running `setup.py bdist_wheel` creates a wheel file which can then be used with `pip`.
+   * Finally, executing `pip install Chromos\*.whl` installs the wheel file.
 
 
 ## Attributes Supported:
 
  **Text:**
-   * Bold (default=**True**)
-   * Itallic (default=**False**)
-   * Underline (default=**False**)
-   * Blink (default=**False**)
-   * Strikethrough (default=**False**)
+   * Bold (default=True)
+   * Itallic (default=False)
+   * Underline (default=False)
+   * Blink (default=False)
+   * Strikethrough (default=False)
    
  **Text Colors:**
    * Black
@@ -52,6 +52,7 @@
    * White
 
 ## Usage
+
 * Use cstr function for the colored text,
   * cstr('\<color> \<bgcolor, optional>  \<attributes>', '\<string>')
 * Can also use Individual color functions,
