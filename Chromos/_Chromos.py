@@ -1,53 +1,14 @@
 #!/usr/bin/python3
 from sys import stdout
 
+__all__ = ["Chromos"]
+
+"""Package for getting colored text output in Python terminal
 """
-Package for getting colored text output in Python terminal
-"""
 
-class InvalidColor(Exception):
-    """
-    Exception Raised when Invalid Color is entered.
-    """
-    def __init__(self, message="Invalid Color"):
-        self.message = message
-        super().__init__(self.message)
-
-    pass
-
-class InvalidBGColor(Exception):
-    """
-    Exception Raised when Invalid Background Color is entered.
-    """
-    def __init__(self, message="Invalid Background Color"):
-        self.message = message
-        super().__init__(self.message)
-
-    pass
-
-class InvalidDelimiter(Exception):
-    """
-    Exception Raised when the Delimiter is Invalid
-    """
-    def __init__(self, message=''.join(["Invalid Delimiter\n\n", "\033[1;31m[\033[0m", "\033[1;34m!\033[0m", "\033[1;31m]\033[0m", " Use ' ' as the delimiter\n"])):
-        self.message = message
-        super().__init__(self.message)
-
-    pass
-
-class InvalidAttribute(Exception):
-    """
-    Exception Raised when Invalid Attribute is entered.
-    """
-    def __init__(self, message="Invalid Attribute"):
-        self.message = message
-        super().__init__(self.message)
-
-    pass
 
 class Chromos():
-    """
-    Chromos provides colored-text terminal output.
+    """Chromos provides colored-text terminal output.
 
     Colors:
         Black    --    black
@@ -74,7 +35,7 @@ class Chromos():
         (u)    Underline
         (blk)  Blink           (may not be supported)
         (st)   Strikethrough
-    
+
     Functions:
         cstr('<color> <bgcolor, optional> <attributes>', '<string>')
         blue('<color>', '<string>')
@@ -94,29 +55,29 @@ class Chromos():
     blink = False
     strikethrough = False
     colors = {
-            "black":"30",
-            "red":"31",
-            "green":"32",
-            "yellow":"33",
-            "blue":"34",
-            "purple":"35",
-            "cyan":"36",
-            "white":"37",
-            "bgblack":"40",
-            "bgred":"41",
-            "bggreen":"42",
-            "bgyellow":"43",
-            "bgblue":"44",
-            "bgpurple":"45",
-            "bgcyan":"46",
-            "bgwhite":"47"
+            "black": "30",
+            "red": "31",
+            "green": "32",
+            "yellow": "33",
+            "blue": "34",
+            "purple": "35",
+            "cyan": "36",
+            "white": "37",
+            "bgblack": "40",
+            "bgred": "41",
+            "bggreen": "42",
+            "bgyellow": "43",
+            "bgblue": "44",
+            "bgpurple": "45",
+            "bgcyan": "46",
+            "bgwhite": "47"
         }
 
     style = {
-            "no_style":"0",
-            "bold":"1",
+            "no_style": "0",
+            "bold": "1",
             "itallic": "3",
-            "underline":"4",
+            "underline": "4",
             "blink": "5",
             "strikethrough": "9"
         }
@@ -132,16 +93,16 @@ class Chromos():
     def get_attr(self):
         self.attr = self.base_attr
 
-        if(self.no_style==False):
-            if(self.bold==True):
+        if not self.no_style:
+            if self.bold:  # noqa: E731
                 self.attr = ''.join([self.attr, "1;"])
-            if(self.itallic==True):
+            if self.itallic:  # noqa: E731
                 self.attr = ''.join([self.attr, "3;"])
-            if(self.underline==True):
+            if self.underline:  # noqa: E731
                 self.attr = ''.join([self.attr, "4;"])
-            if(self.blink==True):
+            if self.blink:  # noqa: E731
                 self.attr = ''.join([self.attr, "5;"])
-            if(self.strikethrough==True):
+            if self.strikethrough:  # noqa: E731
                 self.attr = ''.join([self.attr, "9;"])
         else:
             self.attr = ''.join([self.attr, "0;"])
@@ -160,14 +121,14 @@ class Chromos():
         attr = self.base_attr
 
         for arg in args:
-            if(len(arg.lower()) > 3):
+            if len(arg.lower()) > 3:
                 attr = ''.join([attr, self.style[arg.lower()], ";"])
             else:
                 attr = ''.join([attr, self.style[self.attrinter[arg.lower()]], ";"])
 
         return attr
 
-    def cstr(self, args:'Arguments (str)', string:'Text (str)'):
+    def cstr(self, args: str, string: str):
         """
         cstr('<color> <bgcolor, optional> <attributes>', '<string>')
 
@@ -181,14 +142,15 @@ class Chromos():
             str: Text with Appropiate Prefix and Suffix.
         """
 
-        if(type(args) is str): args = args.split(' ')
-        
+        if type(args) is str:
+            args = args.split(' ')
+
         color = args[0].lower()
         bgcolor = self.default_bgcolor
         color_attr = ""
 
-        if(len(args)>1):
-            if(args[1][0:2]=="bg"):
+        if len(args) > 1:
+            if args[1][0:2] == "bg":
                 bgcolor = args[1].lower()
                 args.pop(1)
                 try:
@@ -203,7 +165,7 @@ class Chromos():
         except KeyError:
             raise InvalidColor
 
-        if(args):
+        if args:
             try:
                 self.attr = self.attribute_interpretor(args)
             except KeyError:
@@ -242,7 +204,7 @@ class Chromos():
             (u)    Underline
             (blk)  Blink           (may not be supported)
             (st)   Strikethrough
-        
+
         Functions:
             cstr('<color> <bgcolor, optional> <attributes>', '<string>')
             blue('<color>', '<string>')
@@ -252,108 +214,140 @@ class Chromos():
             error_info_b('<string>')
         """)
         stdout.flush()
-        
+
         return
 
-    def black(self, string:str)->str:
-        """
-        black('<color>', '<string>')
+    def black(self, string: str) -> str:
+        """black('<color>', '<string>')
         """
         self.get_attr()
 
         return ''.join([self.attr, self.colors["black"], "m", string, "\033[0m"])
 
-    def blue(self, string:str)->str:
-        """
-        blue('<color>', '<string>')
+    def blue(self, string: str) -> str:
+        """blue('<color>', '<string>')
         """
         self.get_attr()
 
         return ''.join([self.attr, self.colors["blue"], "m", string, "\033[0m"])
 
-    def red(self, string:str)->str:
-        """
-        red('<color>', '<string>')
+    def red(self, string: str) -> str:
+        """red('<color>', '<string>')
         """
         self.get_attr()
-        
+
         return ''.join([self.attr, self.colors["red"], "m", string, "\033[0m"])
 
-    def green(self, string:str)->str:
-        """
-        green('<color>', '<string>')
+    def green(self, string: str) -> str:
+        """green('<color>', '<string>')
         """
         self.get_attr()
-        
+
         return ''.join([self.attr, self.colors["green"], "m", string, "\033[0m"])
 
-    def yellow(self, string:str)->str:
-        """
-        yellow('<color>', '<string>')
+    def yellow(self, string: str) -> str:
+        """yellow('<color>', '<string>')
         """
         self.get_attr()
-        
+
         return ''.join([self.attr, self.colors["yellow"], "m", string, "\033[0m"])
 
-    def purple(self, string:str)->str:
-        """
-        purple('<color>', '<string>')
+    def purple(self, string: str) -> str:
+        """purple('<color>', '<string>')
         """
         self.get_attr()
-        
+
         return ''.join([self.attr, self.colors["purple"], "m", string, "\033[0m"])
 
-    def cyan(self, string:str)->str:
-        """
-        cyan('<color>', '<string>')
+    def cyan(self, string: str) -> str:
+        """cyan('<color>', '<string>')
         """
         self.get_attr()
-        
+
         return ''.join([self.attr, self.colors["cyan"], "m", string, "\033[0m"])
 
-    def white(self, string:str)->str:
-        """
-        white('<color>', '<string>')
+    def white(self, string: str) -> str:
+        """white('<color>', '<string>')
         """
         self.get_attr()
-        
+
         return ''.join([self.attr, self.colors["white"], "m", string, "\033[0m"])
 
-    def info(self, string:str)->None:
-        """
-        info('<string>')
+    def info(self, string: str) -> None:
+        """info('<string>')
         """
         stdout.write(''.join([self.red("["), self.blue("*"), self.red("]"), " ", self.red(string)]))
         stdout.flush()
-        
+
         return
 
-    def info_y(self, string:str)->None:
-        """
-        info_y('<string>')
+    def info_y(self, string: str) -> None:
+        """info_y('<string>')
         """
         stdout.write(''.join([self.blue("["), self.red("*"), self.blue("]"), " ", self.yellow(string)]))
         stdout.flush()
 
         return
 
-    def error_info(self, string:str)->None:
-        """
-        error_info('<string>')
+    def error_info(self, string: str) -> None:
+        """error_info('<string>')
         """
         stdout.write(''.join([self.blue("["), self.red("!"), self.blue("]"), " ", self.red(string)]))
         stdout.flush()
 
         return
 
-    def error_info_b(self, string:str)->None:
-        """
-        error_info_b('<string>')
+    def error_info_b(self, string: str) -> None:
+        """error_info_b('<string>')
         """
         stdout.write(''.join([self.blue("["), self.red("!"), self.blue("]"), " ", self.blue(string)]))
         stdout.flush()
-        
+
         return
 
     pass
 
+
+class InvalidColor(Exception):
+    """Exception Raised when Invalid Color is entered.
+    """
+    def __init__(self, message="Invalid Color"):
+        self.message = message
+        super().__init__(self.message)
+
+    pass
+
+
+class InvalidBGColor(Exception):
+    """Exception Raised when Invalid Background Color is entered.
+    """
+    def __init__(self, message="Invalid Background Color"):
+        self.message = message
+        super().__init__(self.message)
+
+    pass
+
+
+class InvalidDelimiter(Exception):
+    """Exception Raised when the Delimiter is Invalid
+    """
+    def __init__(
+        self,
+        message=''.join(["Invalid Delimiter\n\n",
+                         "\033[1;31m[\033[0m", "\033[1;34m!\033[0m",
+                         "\033[1;31m]\033[0m", " Use ' ' as the delimiter\n"])):
+
+        self.message = message
+        super().__init__(self.message)
+
+    pass
+
+
+class InvalidAttribute(Exception):
+    """Exception Raised when Invalid Attribute is entered.
+    """
+    def __init__(self, message="Invalid Attribute"):
+        self.message = message
+        super().__init__(self.message)
+
+    pass
