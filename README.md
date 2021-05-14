@@ -1,4 +1,3 @@
-# Chromos
 
 ```
    ____ _                                   
@@ -9,18 +8,31 @@
                                             
 ```
 
-**Package for getting colored text output in Python.**
+<br>
+
+![Build](https://github.com/devanshshukla99/Chromos/actions/workflows/main.yml/badge.svg)
+
+<hr>
+
+Package for getting colored text output in Python.
+
+<hr>
 
 ## Installation
 
- * With Wheel File
-   * `pip install Chromos\*.whl`
- 
- * Building From Source
-   * Use `setup.py` either to install or to create the wheel file. 
-   * Running `setup.py bdist_wheel` creates a wheel file which can then be used with `pip`.
-   * Finally, executing `pip install Chromos\*.whl` installs the wheel file.
+- With Wheel File
 
+```console
+pip install Chromos\*.whl`
+```
+
+- Building From Source
+
+```python
+python setup.py install
+```
+
+<hr>
 
 ## Attributes Supported:
 
@@ -51,70 +63,89 @@
    * Cyan
    * White
 
+<hr>
+
 ## Usage
 
-* Use cstr function for the colored text,
-  * cstr('\<color> \<bgcolor, optional>  \<attributes>', '\<string>')
-* Can also use Individual color functions,
-  * blue('\<color>', '\<string>')
-  * red('\<color>', '\<string>')
-  * Similarly for other colors...
-* For Printing an Error Message
-  * error_info('\<string>')
-  * error_info_b('\<string>')
-* For Printing an Info Message
-  * info('\<string>')
-  * info_y('\<string>')   
+- Use `cstr` function for the colored text,
+  
+```python
+  cstr(attributes, string)
+```
+
+- Can also use individual color functions,
+
+```python
+blue(color, string)
+# Similarly for other color functions
+```  
+
+- For printing an error message
+
+```python
+# Use error_info or error_info_b
+error_info("Error occured!")
+```
+
+- For printing an info message
+
+```python
+# Use info or info_y
+info("Just informing about the new release :P")
+```
+
+<hr>
 
 ## Example
 
-**Illustration of usage**
+Illustration of usage
 
 ```python
 import Chromos
 o = Chromos.Chromos()
 ```
+
 ```python
 print(o.cstr("blue", "Hello World! *"))
 print(o.blue("Hey Chromos! "))
 ```
 
-<img src="Imgs/chromos_hey.png" width="500px" height="60px">
+<img src="docs/imgs/chromos_hey.png" width="500px" height="60px">
 
-**Global Attributes**
+Global Attributes
 ```python
 o.underline = True
 print(o.cstr("yellow", "Good stuff!"))
 ```
-<img src="Imgs/chromos_good_stuff.png" width="500px" height="45px">
+<img src="docs/imgs/chromos_good_stuff.png" width="500px" height="45px">
 
 ```python
 o.itallic = True
 o.strikethrough = True
 print(o.cstr("red", "Alright, alright!"))
 ```
-<img src="Imgs/chromos_alright.png" width="500px" height="45px">
+<img src="docs/imgs/chromos_alright.png" width="500px" height="45px">
 
-**Local Attributes**
+Local Attributes
 ```python
 print(o.cstr("yellow underline", "Cool!"))
 ```
-<img src="Imgs/chromos_cool.png" width="500px" height="45px">
+<img src="docs/imgs/chromos_cool.png" width="500px" height="45px">
 
 ```python
 print(o.cstr("yellow bgred bf", "Great!"))
 ```
 
-<img src="Imgs/chromos_great.png" width="500px" height="45px">
+<img src="docs/imgs/chromos_great.png" width="500px" height="45px">
 
-**Function For Printing an Error Message**
+Function For Printing an Error Message
 ```python
 o.error_info("This is an Error Msg!" )
 ```
-<img src="Imgs/chromos_error.png" width="500px" height="45px">
+<img src="docs/imgs/chromos_error.png" width="500px" height="45px">
 
-**Function For Printing an Info Message**
+Function For Printing an Info Message
 ```python
 o.info_y("This is an Info Msg!" )
 ```
-<img src="Imgs/chromos_info.png" width="500px" height="45px">
+<img src="docs/imgs/chromos_info.png" width="500px" height="45px">
